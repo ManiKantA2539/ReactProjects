@@ -1,17 +1,19 @@
-import React,{useState} from "react";
-const Input = ({value,handle,currency}) => {
+import React from "react";
+const Input = ({...props}) => {
     return(
         <div>
             <input 
                 type="number" 
-                defaultValue=""
-                value={value}
-                onChange={(e) => handle && handle(e.target.value)}
+                value={props.value}
+                onChange={(e) => props.handle && props.handle(e.target.value)}
             />
-            <select>
-                {currency && currency.length > 0 ? (
-                    currency.map((curr) => (
-                        <option key={curr} value={curr}>{curr}</option>
+            <select 
+                value={props.selected_curr}
+                onChange={(e)=>{props.currency_change && props.currency_change(e.target.value)}}
+            >
+                {props.currency && props.currency.length > 0 ? (
+                    props.currency.map((curr) => (
+                        <option key={curr} value={curr} >{curr}</option>
                     ))
                 ) : (
                     <option disabled>No currencies available</option>

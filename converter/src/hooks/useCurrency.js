@@ -7,7 +7,6 @@ export default function useCurrency(curr){
     useEffect(()=>{
         const arr = async()=>{
             try {
-                console.log(curr);
                 const res = await axios.get((`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${curr}.json`));
                 setData(res?.data[curr]);
             } catch (error) {
