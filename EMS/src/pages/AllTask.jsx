@@ -1,35 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/AuthProvider';
 
 const AllTask = () => {
-    return (
-        <div className='bg-neutral-900 p-7 m-10 rounded-md h-60 overflow-auto'>
-            <div className='bg-red-400 flex justify-between p-5 rounded-md m-5'>
-                <h2>User-1</h2>
-                <h3>Make Component</h3>
-                <h3>Status</h3>
-            </div>
-            <div className='bg-green-400 flex justify-between p-5 rounded-md m-5'>
-                <h2>User-2</h2>
-                <h3>Make Component</h3>
-                <h3>Status</h3>
-            </div>
-            <div className='bg-yellow-400 flex justify-between p-5 rounded-md m-5'>
-                <h2>User-3</h2>
-                <h3>Make Component</h3>
-                <h3>Status</h3>
-            </div>
-            <div className='bg-blue-400 flex justify-between p-5 rounded-md m-5'>
-                <h2>User-4</h2>
-                <h3>Make Component</h3>
-                <h3>Status</h3>
-            </div>
-            <div className='bg-orange-400 flex justify-between p-5 rounded-md m-5'>
-                <h2>User-5</h2>
-                <h3>Make Component</h3>
-                <h3>Status</h3>
-            </div>
-        </div>
-    )
-}
+    const data = useContext(AuthContext);
 
-export default AllTask
+    return (
+        <div className="bg-neutral-900 p-7 m-10 rounded-md h-auto overflow-auto">
+            <div className="p-5 flex justify-between items-center rounded-t-md">
+                <h2 className="text-xl text-white font-bold w-1/5">Employee Name</h2>
+                <p className="text-gray-200 w-1/5 text-center">Active Tasks</p>
+                <p className="text-gray-200 w-1/5 text-center">New Tasks</p>
+                <p className="text-gray-200 w-1/5 text-center">Completed Tasks</p>
+                <p className="text-gray-200 w-1/5 text-center">Failed Tasks</p>
+            </div>
+            {data.employees.map((employee) => (
+                <div key={employee.id} className="p-5 flex justify-between items-center border-b border-gray-600">
+                    <h2 className="text-xl text-white font-bold w-1/5">{employee.name}</h2>
+                    <p className="text-gray-200 w-1/5 text-center">{employee.taskCount.active}</p>
+                    <p className="text-gray-200 w-1/5 text-center">{employee.taskCount.newTask}</p>
+                    <p className="text-gray-200 w-1/5 text-center">{employee.taskCount.completed}</p>
+                    <p className="text-gray-200 w-1/5 text-center">{employee.taskCount.failed}</p>
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default AllTask;

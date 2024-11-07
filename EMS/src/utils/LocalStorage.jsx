@@ -2,8 +2,8 @@ export const employees = [
     {
         "id": 1,
         "name": "John Doe",
-        "username": "john.doe@example.com",
-        "password": "password123",
+        "username": "j@e.com",
+        "password": "123",
         "taskCount": {
             "active": 2,
             "newTask": 1,
@@ -101,7 +101,7 @@ export const employees = [
         "tasks": [
             {
                 "active": true,
-                "newTask": true,
+                "newTask": false,
                 "completed": false,
                 "failed": false,
                 "taskTitle": "Set Up CI/CD Pipeline",
@@ -134,7 +134,7 @@ export const employees = [
         },
         "tasks": [
             {
-                "active": true,
+                "active": false,
                 "newTask": true,
                 "completed": false,
                 "failed": false,
@@ -179,7 +179,7 @@ export const employees = [
         "tasks": [
             {
                 "active": true,
-                "newTask": true,
+                "newTask": false,
                 "completed": false,
                 "failed": false,
                 "taskTitle": "Develop New Feature",
