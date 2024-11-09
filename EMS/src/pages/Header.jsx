@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Header = ({ data }) => {
+const Header = ({ data, changeUser }) => {
     const handleLogout = () => {
         localStorage.removeItem("loggedInUser");
-        window.location.reload(); // Reload to reset the app state
+        changeUser('');
     };
 
     return (

@@ -40,7 +40,7 @@ function App() {
   return (
     <>
       {!user && <Login handleLogin={handleLogin} />}
-      {user && (user === "admin" ? <AdminDasboard data={userData} /> : <EmployeeDashboard data={userData} />)}
+      {user && (user === "admin" ? <AdminDasboard changeUser={setUser} data={userData} /> : <EmployeeDashboard changeUser={setUser} data={userData} />)}
     </>
   );
 }

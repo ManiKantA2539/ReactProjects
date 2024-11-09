@@ -3,10 +3,10 @@ import Header from '../../pages/Header'
 import CreateTask from '../../pages/CreateTask'
 import AllTask from '../../pages/AllTask'
 
-const AdminDasboard = ({ data }) => {
+const AdminDasboard = ({ data, changeUser }) => {
     return (
         <div >
-            <Header data={data} />
+            <Header data={data} changeUser={changeUser} />
             <CreateTask />
             <AllTask />
         </div>
